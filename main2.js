@@ -25,8 +25,8 @@ var h;
 function init()
 {
   ball = document.querySelector(".cursor");
- w = colr.innerWidth;
-   h = colr.innerHeight;
+ w = window.innerWidth;
+   h = window.innerHeight;
 
 ball.style.left = (w/2)-50+"px";
 ball.style.top = (h/2)-50+"px";
@@ -117,7 +117,7 @@ var nav = document.querySelector("nav");
 burger.addEventListener("click", function(e) {
     nav.classList.toggle("visible");
   });
-
+var part = document.getElementById('particles-js');
 var colr = document.querySelector('.container');
 var color = document.querySelector('.prez');
 colr.addEventListener("click", function(e) {
