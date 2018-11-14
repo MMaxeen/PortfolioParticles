@@ -1,5 +1,4 @@
-var scene = document.getElementById('scene');
-var parallaxInstance = new Parallax(scene);
+
 
 var jardin = document.querySelector('body'),
     balle = document.querySelector('.cursor'),
