@@ -1,35 +1,84 @@
+if ( !window.requestAnimationFrame ) {
+ 
+  window.requestAnimationFrame = ( function() {
 
+      return window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
 
-var jardin = document.querySelector('body'),
-    balle = document.querySelector('.cursor'),
-    resultat = document.querySelector('.resultat'),
-    maxX = jardin.clientWidth  - balle.clientWidth,
-    maxY = jardin.clientHeight - balle.clientHeight;
+          window.setTimeout( callback, 1000 / 60 );
 
-function handleOrientation(event) {
-  var x = event.beta,  // En degré sur l'interval [-180,180].
-      y = event.gamma; // En degré sur l'interval [-90,90].
-      setPosition(cursor, e);
-  resultat.innerHTML  = "beta : " + x + "<br />";
-  resultat.innerHTML += "gamma: " + y + "<br />";
+      };
 
-  // Parce-que l'on ne veut pas avoir l'appareil à l'envers.
-  // On restreint les valeurs de x à l'intervalle [-90,90].
-  if (x >  90) { x =  90};
-  if (x < -90) { x = -90};
-  // Pour rendre le calcul plus simple.
-  // On délimite l'intervalle de x et y sur [0, 180].
-  x += 90;
-  y += 90;
+  } )();
 
-  // 10 est la moitié de la taille de la balle.
-  // Cela centre le point de positionnement au centre de la balle.
-
-  balle.style.top  = (maxX * x / 180 - 10) + "px";
-  balle.style.left = (maxY * y / 180 - 10) + "px";
 }
 
-window.addEventListener('deviceorientation', handleOrientation);
+
+
+var ball;
+var w;
+var h;
+
+function init()
+{
+  ball = document.querySelector(".cursor");
+ w = window.innerWidth;
+   h = window.innerHeight;
+
+ball.style.left = (w/2)-50+"px";
+ball.style.top = (h/2)-50+"px";
+ball.velocity = {x:0,y:0}
+ball.position = {x:0,y:0}
+  
+  if (window.DeviceOrientationEvent) {
+  
+  window.addEventListener("deviceorientation", function(event) 
+  {
+    ball.velocity.y = Math.round(event.beta);
+    ball.velocity.x = Math.round(event.gamma);
+      }
+                             )
+  }
+  else {
+  	alert("Sorry, your browser doesn't support Device Orientation");
+} ;
+  
+  update();
+}
+
+function update()
+{
+      ball.position.x += ball.velocity.x;
+      ball.position.y += ball.velocity.y;
+      
+      if(ball.position.x > (w-100) && ball.velocity.x > 0)
+    {
+       ball.position.x = w-100;
+    }
+    
+    if(ball.position.x < 0 && ball.velocity.x < 0)
+    {
+      ball.position.x = 0;
+    }
+    
+    if(ball.position.y > (h-100) && ball.velocity.y > 0)
+    {
+       ball.position.y = h-100;
+    }
+    
+    if(ball.position.y < 0 && ball.velocity.y < 0)
+    {
+       ball.position.y = 0;
+    }
+  
+  ball.style.top = ball.position.y + "px"
+      ball.style.left = ball.position.x + "px"
+  
+  requestAnimationFrame( update );//KEEP ANIMATING
+}
 
 var root = document.querySelector('html');
 
