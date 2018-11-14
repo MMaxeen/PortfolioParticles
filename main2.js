@@ -7,7 +7,7 @@ var jardin = document.querySelector('body'),
 function handleOrientation(event) {
   var x = event.beta,  // En degré sur l'interval [-180,180].
       y = event.gamma; // En degré sur l'interval [-90,90].
-
+      setPosition(cursor, e);
   resultat.innerHTML  = "beta : " + x + "<br />";
   resultat.innerHTML += "gamma: " + y + "<br />";
 
@@ -73,7 +73,7 @@ colr.addEventListener("click", function(e) {
   color.classList.toggle("testcolor");
 });
   
-// var menu = document.querySelector('.menu');
+var menu = document.querySelector('.menu');
 burger.addEventListener("click", function(e) {
   burger.classList.toggle("active");
 });
@@ -131,7 +131,7 @@ particlesJS("particles-js", {
         "enable": true,
         "distance": 100,
         "color": "#fff",
-        "opacity": 1,
+        "opacity": 0.9,
         "width": 0.2
       },
       "move": {
