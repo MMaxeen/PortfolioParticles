@@ -24,7 +24,7 @@ var h;
 
 function init()
 {
-  ball = document.querySelector(".cursor");
+  ball = document.getElementById("ball");
  w = window.innerWidth;
    h = window.innerHeight;
 
