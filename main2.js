@@ -25,8 +25,8 @@ var h;
 function init()
 {
   ball = document.querySelector(".cursor");
- w = window.innerWidth;
-   h = window.innerHeight;
+ w = colr.innerWidth;
+   h = colr.innerHeight;
 
 ball.style.left = (w/2)-50+"px";
 ball.style.top = (h/2)-50+"px";
