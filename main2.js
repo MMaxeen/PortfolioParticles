@@ -28,6 +28,7 @@ function handleOrientation(event) {
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
+
 var root = document.querySelector('html');
 
 // Real cursor element
@@ -131,7 +132,7 @@ particlesJS("particles-js", {
         "distance": 100,
         "color": "#fff",
         "opacity": 1,
-        "width": 0.1
+        "width": 0.2
       },
       "move": {
         "enable": true,
