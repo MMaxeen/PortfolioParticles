@@ -54,9 +54,9 @@ function update()
       ball.position.x += ball.velocity.x;
       ball.position.y += ball.velocity.y;
       
-      if(ball.position.x > (w-0) && ball.velocity.x > 0)
+      if(ball.position.x > (w-100) && ball.velocity.x > 0)
     {
-       ball.position.x = w-10;
+       ball.position.x = w-100;
     }
     
     if(ball.position.x < 0 && ball.velocity.x < 0)
@@ -115,15 +115,21 @@ var nav = document.querySelector("nav");
 burger.addEventListener("click", function(e) {
     nav.classList.toggle("visible");
   });
+  
 var part = document.getElementById('particles-js');
 var colr = document.querySelector('.container');
 var color = document.querySelector('.prez');
 var logo = document.querySelector('.icon-Logomm');
+var card = document.querySelector('.card');
 colr.addEventListener("click", function(e) {
   color.classList.toggle("testcolor");
   logo.classList.toggle("testcolor");
 });
   
+colr.addEventListener("click", function(e) {
+  card.classList.toggle("active");
+})
+
 var menu = document.querySelector('.menu');
 burger.addEventListener("click", function(e) {
   burger.classList.toggle("active");
