@@ -54,9 +54,9 @@ function update()
       ball.position.x += ball.velocity.x;
       ball.position.y += ball.velocity.y;
       
-      if(ball.position.x > (w-100) && ball.velocity.x > 0)
+      if(ball.position.x > (w-0) && ball.velocity.x > 0)
     {
-       ball.position.x = w-100;
+       ball.position.x = w-10;
     }
     
     if(ball.position.x < 0 && ball.velocity.x < 0)
