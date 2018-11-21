@@ -43,7 +43,7 @@ ball.position = {x:0,y:0}
                              )
   }
   else {
-  	alert("Sorry, your browser doesn't support Device Orientation");
+  alert("Sorry, your browser doesn't support Device Orientation");
 } ;
   
   update();
@@ -78,7 +78,7 @@ function update()
       ball.style.left = ball.position.x + "px"
   
   requestAnimationFrame( update );//KEEP ANIMATING
-}
+
 
 var root = document.querySelector('html');
 
