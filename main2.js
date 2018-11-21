@@ -78,7 +78,7 @@ function update()
       ball.style.left = ball.position.x + "px"
   
   requestAnimationFrame( update );//KEEP ANIMATING
-
+  }
 
 var root = document.querySelector('html');
 
