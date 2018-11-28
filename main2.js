@@ -157,20 +157,20 @@ burger.addEventListener("click", function(e) {
 particlesJS("particles-js", {
     "particles": {
       "number": {
-        "value": 80,
+        "value": 70,
         "density": {
           "enable": true,
-          "value_area": 100
+          "value_area": 80
         }
       },
       "color": {
-        "value": "#ffffff"
+        "value": "#404fe6"
       },
       "shape": {
-        "type": "polygon",
+        "type": "circle",
         "stroke": {
-          "width": 10,
-          "color": "#000"
+          "width": 0,
+          "color": "#404fe6"
         },
         "polygon": {
           "nb_sides": 6
@@ -206,18 +206,18 @@ particlesJS("particles-js", {
         "distance": 40,
         "color": "#fff",
         "opacity": 1,
-        "width": 1.6
+        "width": 1
       },
       "move": {
         "enable": true,
-        "speed": 5,
+        "speed": 3,
         "direction": "none",
         "random": false,
         "straight": false,
         "out_mode": "out",
-        "bounce": true,
+        "bounce": false,
         "attract": {
-          "enable": true,
+          "enable": false,
           "rotateX": 600,
           "rotateY": 1200
         }
@@ -228,7 +228,7 @@ particlesJS("particles-js", {
       "events": {
         "onhover": {
           "enable": true,
-          "mode": "grab"
+          "mode": "bubble"
         },
         "onclick": {
           "enable": true,
@@ -244,18 +244,18 @@ particlesJS("particles-js", {
           }
         },
         "bubble": {
-          "distance": 200,
-          "size": 40,
-          "duration": 2,
-          "opacity": 0.4,
-          "speed": 3
+          "distance": 80,
+          "size": 6,
+          "duration": 3,
+          "opacity": 1,
+          "speed": 6
         },
         "repulse": {
-          "distance": 800,
+          "distance": 600,
           "duration": 0.4
         },
         "push": {
-          "particles_nb": 90
+          "particles_nb": 20
         },
         "remove": {
           "particles_nb": 2
@@ -265,4 +265,7 @@ particlesJS("particles-js", {
     "retina_detect": true
   });
   
-  
+  var particle = document.getElementById('particles-js');
+  particle.addEventListener("click", function(e) {
+    particle.classList.toggle("ghost");
+  });
