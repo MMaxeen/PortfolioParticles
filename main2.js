@@ -80,15 +80,32 @@ function update()
   requestAnimationFrame( update );//KEEP ANIMATING
   }
 
+// var root = document.querySelector('html');
+
+// // Real cursor element
+// var cursor = document.querySelector('.cursor');
+
+// root.addEventListener('mousemove', function (e) {
+//   setPosition(cursor, e);
+// });
+
+// function setPosition(element, e) {
+//   element.style.transform = 'translate3d(' + e.clientX + 'px, ' + e.clientY + 'px, 0)';
+// }
+
 var root = document.querySelector('html');
 
 // Real cursor element
 var cursor = document.querySelector('.cursor');
 
+// Following extra cursor element
+var follower = document.querySelector('.cursor__follower');
+
+
 root.addEventListener('mousemove', function (e) {
+  setPosition(follower, e);
   setPosition(cursor, e);
 });
-
 
 function setPosition(element, e) {
   element.style.transform = 'translate3d(' + e.clientX + 'px, ' + e.clientY + 'px, 0)';
@@ -186,10 +203,10 @@ particlesJS("particles-js", {
       },
       "line_linked": {
         "enable": true,
-        "distance": 30,
+        "distance": 40,
         "color": "#fff",
         "opacity": 1,
-        "width": 2.6
+        "width": 1.6
       },
       "move": {
         "enable": true,
