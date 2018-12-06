@@ -343,4 +343,49 @@ nav.visible .about{
 
 /* TESTING */
 
- 
+@media screen and (min-width: 200px) and (max-width: 900px) {
+
+    nav{
+        background-color: rgba(254, 254, 254, 0.9);
+        transform: translateY(+120vh);
+        transition: all 800ms ease-out;
+    }
+    
+    
+    nav.visible{
+        transform: translateY(0);
+        position: absolute;
+        bottom: 10vh;
+        left: 0;
+        height: 10vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 999999999;
+    }
+    
+    .home, .about, .projects{
+        transform: translateY(+120vh);
+        cursor: pointer;
+    }
+
+    
+    nav.visible .home{
+        transform: translateY(0);
+        transition-delay: 0.3s;
+    }
+    
+    nav.visible .projects{
+        transform: translateY(0);
+        transition-delay: 0.5s;
+    }
+    
+    nav.visible .about{
+        transform: translateY(0);
+        transition-delay: 0.7s;
+    }
+    
+    
+    
+  }
