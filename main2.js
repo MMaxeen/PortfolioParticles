@@ -95,7 +95,6 @@ burger.addEventListener("click", function(e) {
     nav.classList.toggle("visible");
   });
   
-var part = document.getElementById('particles-js');
 var colr = document.querySelector('.container');
 var color = document.querySelector('.prez');
 var logo = document.querySelector('.icon-Logomm');
@@ -111,9 +110,9 @@ colr.addEventListener("click", function(e) {
   card.classList.toggle("active");
 })
 
-var menu = document.querySelector('.menu');
+var bar = document.querySelector('.bar');
 burger.addEventListener("click", function(e) {
-  burger.classList.toggle("active");
+  bar.classList.toggle("active");
 });
 
   /* ---- particles.js config ---- */
@@ -209,7 +208,7 @@ particlesJS("particles-js", {
         },
         "bubble": {
           "distance": 1000,
-          "size": 6,
+          "size": 4,
           "duration": 3,
           "opacity": 1,
           "speed": 6
