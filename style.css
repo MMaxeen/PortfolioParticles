@@ -179,7 +179,7 @@ h3{
 }
 
 .header p{
-    margin-right: 20px;
+    margin-left: 20px;
     transition: color 0.6s ease;
     cursor: pointer;
 }
@@ -322,7 +322,7 @@ a:hover{
 
 .menu{
     position: absolute;
-    left: 20px;
+    right: 20px;
     bottom: 10px;
     width: 20px;
     height: 40px;
@@ -363,14 +363,14 @@ a:hover{
 nav{
     background-color: rgba(254, 254, 254, 0.9);
     height: 90vh;
+    width: 40vw;
     font-size: 2em;
-    transform: translateY(-100vh);
+    transform: translateX(+140vw);
     transition: transform 600ms ease-out;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    z-index: 2;
 }
 
 nav a{
@@ -378,7 +378,10 @@ nav a{
 }
 
 nav.visible{
-    transform: translateY(0);
+    transform: translateX(60vw);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .home, .about, .projects{
