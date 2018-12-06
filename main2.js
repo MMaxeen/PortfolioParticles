@@ -1,3 +1,4 @@
+//Bouncing Ball
 var x = 0, y = 0,
     vx = 0, vy = 0,
 	ax = 0, ay = 0;
@@ -10,14 +11,14 @@ if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
     ax = event.accelerationIncludingGravity.x * 20;
 		ay = event.accelerationIncludingGravity.y * 20;
-		document.getElementById("accelerationX").innerHTML = e.accelerationIncludingGravity.x;
-		document.getElementById("accelerationY").innerHTML = e.accelerationIncludingGravity.y;
-		document.getElementById("accelerationZ").innerHTML = e.accelerationIncludingGravity.z;
+		// document.getElementById("accelerationX").innerHTML = e.accelerationIncludingGravity.x;
+		// document.getElementById("accelerationY").innerHTML = e.accelerationIncludingGravity.y;
+		// document.getElementById("accelerationZ").innerHTML = e.accelerationIncludingGravity.z;
 
 		if ( e.rotationRate ) {
-			document.getElementById("rotationAlpha").innerHTML = e.rotationRate.alpha;
-			document.getElementById("rotationBeta").innerHTML = e.rotationRate.beta;
-			document.getElementById("rotationGamma").innerHTML = e.rotationRate.gamma;
+			// document.getElementById("rotationAlpha").innerHTML = e.rotationRate.alpha;
+			// document.getElementById("rotationBeta").innerHTML = e.rotationRate.beta;
+			// document.getElementById("rotationGamma").innerHTML = e.rotationRate.gamma;
 		}		
 	}
 
@@ -45,7 +46,7 @@ if (window.DeviceMotionEvent != undefined) {
     
 		
 	}, 20);
-} 
+};
 
 
 function boundingBoxCheck(){
@@ -56,109 +57,13 @@ function boundingBoxCheck(){
 	
 }
 
-// if ( !window.requestAnimationFrame ) {
- 
-//   window.requestAnimationFrame = ( function() {
-
-//       return window.webkitRequestAnimationFrame ||
-//       window.mozRequestAnimationFrame ||
-//       window.oRequestAnimationFrame ||
-//       window.msRequestAnimationFrame ||
-//       function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
-
-//           window.setTimeout( callback, 1000 / 60 );
-
-//       };
-
-//   } )();
-
-// }
-
-
-// var ball;
-// var w;
-// var h;
-
-// function init()
-// {
-//   ball = document.getElementById("ball");
-//   w = window.innerWidth;
-//   h = window.innerHeight;
-
-// ball.style.left = (w)+"px";
-// ball.style.top = (h)+"px";
-// ball.velocity = {x:0,y:0}
-// ball.position = {x:0,y:0}
-  
-//   if (window.DeviceOrientationEvent) {
-  
-//   window.addEventListener("deviceorientation", function(event) 
-//   {
-//     ball.velocity.y = Math.round(event.beta);
-//     ball.velocity.x = Math.round(event.gamma);
-//       }
-//                              )
-//   }
-//   else {
-//   alert("Sorry, your browser doesn't support Device Orientation");
-// } ;
-  
-//   update();
-// }
-
-// function update()
-// {
-//       ball.position.x += ball.velocity.x;
-//       ball.position.y += ball.velocity.y;
-      
-//       if(ball.position.x > (w) && ball.velocity.x > 0)
-//     {
-//        ball.position.x = w;
-//     }
-    
-//     if(ball.position.x < 0 && ball.velocity.x < 0)
-//     {
-//       ball.position.x = 0;
-//     }
-    
-//     if(ball.position.y > (h) && ball.velocity.y > 0)
-//     {
-//        ball.position.y = h;
-//     }
-    
-//     if(ball.position.y < 0 && ball.velocity.y < 0)
-//     {
-//        ball.position.y = 0;
-//     }
-  
-//       ball.style.top = ball.position.y + "px"
-//       ball.style.left = ball.position.x + "px"
-  
-//   requestAnimationFrame( update );//KEEP ANIMATING
-//   }
-
-
-
-// var root = document.querySelector('html');
-
-// // Real cursor element
-// var cursor = document.querySelector('.cursor');
-
-// root.addEventListener('mousemove', function (e) {
-//   setPosition(cursor, e);
-// });
-
-// function setPosition(element, e) {
-//   element.style.transform = 'translate3d(' + e.clientX + 'px, ' + e.clientY + 'px, 0)';
-// }
-
-var root = document.querySelector('html');
+var root = document.querySelector('body');
 
 // Real cursor element
 var cursor = document.querySelector('.cursor');
 
 // Following extra cursor element
-var follower = document.querySelector('.cursor__follower');
+var follower = document.querySelector('.cursor_follower');
 
 
 root.addEventListener('mousemove', function (e) {
@@ -170,9 +75,7 @@ function setPosition(element, e) {
   element.style.transform = 'translate3d(' + e.clientX + 'px, ' + e.clientY + 'px, 0)';
 }
 
-
-
-
+//Scroll event
 var treshold = 750;
 
 window.addEventListener("scroll", function(event){
@@ -197,8 +100,10 @@ var colr = document.querySelector('.container');
 var color = document.querySelector('.prez');
 var logo = document.querySelector('.icon-Logomm');
 var card = document.querySelector('.card');
+var maail = document.querySelector('.cta-light');
 colr.addEventListener("click", function(e) {
   color.classList.toggle("testcolor");
+  maail.classList.toggle("testcolor");
   logo.classList.toggle("testcolor");
 });
   
@@ -287,11 +192,11 @@ particlesJS("particles-js", {
       "events": {
         "onhover": {
           "enable": true,
-          "mode": "bubble"
+          "mode": "repulse"
         },
         "onclick": {
           "enable": true,
-          "mode": "repulse"
+          "mode": "bubble"
         },
         "resize": true
       },
@@ -303,28 +208,40 @@ particlesJS("particles-js", {
           }
         },
         "bubble": {
-          "distance": 80,
+          "distance": 1000,
           "size": 6,
           "duration": 3,
           "opacity": 1,
           "speed": 6
         },
         "repulse": {
-          "distance": 600,
-          "duration": 0.4
+          "distance": 90,
+          "duration": 0.3
         },
         "push": {
-          "particles_nb": 20
+          "particles_nb": 200
         },
         "remove": {
-          "particles_nb": 2
+          "particles_nb": 600
         }
       }
     },
-    "retina_detect": true
+    "retina_detect": false
   });
   
   var particle = document.getElementById('particles-js');
-  particle.addEventListener("click", function(e) {
+  colr.addEventListener("click", function(e) {
     particle.classList.toggle("ghost");
   });
+
+ 
+
+  // var draggable = document.querySelector('.cursor');
+  // draggable.addEventListener('touchmove', function(event) {
+  //   var touch = event.targetTouches[0];
+    
+  //   // Place element where the finger is
+  //   draggable.style.left = touch.pageX-25 + 'px';
+  //   draggable.style.top = touch.pageY-25 + 'px';
+  //   event.preventDefault();
+  // }, false);

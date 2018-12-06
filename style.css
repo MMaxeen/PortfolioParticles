@@ -1,36 +1,53 @@
 *{
     margin: 0;
+    font-weight: 500;
 }
-
 body{
     background-color: white;
     font-family: 'Josefin Sans';
-    height: 100vh;
+    height: 400vh;
 }
 
 .cursor {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 15px;
-    height: 15px;
+    /* left: 0;
+    top: 0; */
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: white;
-    z-index: 2;
+    z-index: 9999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  
-  .cursor__follower {
+/* 
+  .cursor.big{
+      width: 60px;
+      height: 60px;
+  } */
+
+  .cursor_follower {
     position: absolute;
     transform-origin: left 20px;
     transition: transform .6s;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background-color: #404fe6;
     z-index: 0;
   }
 
- .ghost{
+  @media all and (min-width: 200px) and (max-width: 900px) {
+   
+    .cursor_follower {
+      display:none;
+    }
+
+    h1{
+        font-size: 1em;
+    }
+    
   }
 
 /* .cursor {
@@ -67,12 +84,14 @@ body{
   
 
 h1{
-    font-size: 4em;
+    font-size: 6em;
 }
 
 
 h3{
     text-decoration: underline;
+    font-size: 4em;
+    
 }
 
 .container{
@@ -91,13 +110,22 @@ h3{
     position: absolute;
     width: 100%;
     height: 100%;
-    /* background-color: rgb(0, 23, 23, 1); */
+    /* background-color: #404fe6; */
     background-image: url("");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 100% 100%;
     cursor: none;
+    opacity: 1;
+    transition: ease-in 0.2s;
   }
+
+  #particles-js.ghost{
+    opacity: 0.3;
+    transition: ease-in-out all 0.2s;
+    /* background-color: #404fe6; */
+    transform: scale(-1);
+ }
   
 
 ::selection{
@@ -147,7 +175,7 @@ h3{
     justify-content: space-between;
     min-width: 20%;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .header p{
@@ -182,18 +210,21 @@ h3{
 
 .prez{
     position: absolute;
-    left: 10%;
+    left: 5%;
     top: 20%;
-    color: black;
+    color: rgba(38, 38, 38, 0.14);
     transition: all 800ms;
+
 }
 
 .prez.testcolor{
-    color: rgba(220, 220, 220, 0.94);
+    color: rgb(255, 255, 255);
+    z-index: 99;
+    cursor: none;
 
 }
 .prez h3{
-    line-height: 1.5rem;
+    line-height: 5rem;
 }
 
 .cards{
@@ -214,18 +245,57 @@ h3{
     flex-direction: column;
 }
 
+/* .blinker { 
+    animation-name: blinker;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+    animation-duration: 1s;
+    display: inline-block;
+    width: 8px;
+    height: 100px;
+    margin-left: 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(white,.3);
+    background: $y;
+  } */
+  
+  @keyframes blinker { 
+    from { opacity: 1.0; } to { opacity: 0.0; }
+  }
 
+.email {
+    color: rgba(38, 38, 38, 0.14);
+}
 
+.cta-light.testcolor{
+    color: rgb(255, 255, 255);
+    display: block;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: #404fe6;
+    transition: all 800ms;
+}
 
 .cta-light{
-    position: relative;
+    position: absolute;
+    top: 60%;
+    left: 5%;
     font-weight: 700;
-    color: black;
+    font-size: 4em;
     cursor: pointer;
     text-decoration: none;
     z-index: 2;
+    margin-top: 60px;
+    color: rgba(38, 38, 38, 0.14);
+    transition: color 800ms;
+    display: none;
 }
-
 
 .cta-light:hover:before {
     visibility: visible;
@@ -238,7 +308,7 @@ h3{
     content: "";
     position: absolute;
     width: 100%;
-    height: 2px;
+    height: 4px;
     bottom: -4;
     left: 0;
     background-color: #404fe6;
@@ -303,6 +373,10 @@ nav{
     z-index: 2;
 }
 
+nav a{
+    font-weight: 700;
+}
+
 nav.visible{
     transform: translateY(0);
 }
@@ -310,8 +384,14 @@ nav.visible{
 .home, .about, .projects{
     transform: translateY(-90vh);
     cursor: pointer;
-    transition: transform 400ms ease-out;
+    transition: transform 400ms ease-in-out;
 }
+
+.namemm{
+    font-size: 20px;
+    font-weight: 500;
+}
+
 
 nav.visible .home{
     transform: translateY(0);
@@ -326,6 +406,7 @@ nav.visible .about{
     transform: translateY(0);
     transition-delay: 0.6s;
 }
+
 
 
 /* #polygon {
