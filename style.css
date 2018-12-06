@@ -119,53 +119,52 @@ nav a{
   }
 
 .bar:hover{
-      width: 40px;
+      width: 30px;
+      height: 30px;
   }
 
 .bar.active{
     width: 20px;
+    height: 20px;
     background-color: #404fe6;
 }
 
 nav{
-    position: absolute;
-    bottom: 0;
-    right: 100px;
+    display: none;
     /* background-color: rgba(254, 254, 254, 0.9); */
-    transform: translateY(10vh);
-    transition: transform 800ms ease-out;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    opacity: 0;
+    transition: all 800ms ease-out;
+
 }
 
 nav.visible{
-    transform: translateY(0);
-    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    right: 100px;
     height: 10%;
     width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .home, .about, .projects{
-    transform: translateY(10vh);
     cursor: pointer;
-    transition: transform 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
 }
 
 nav.visible .home{
-    transform: translateY(0);
     transition-delay: 0.3s;
+    transition: all 2s ease-out;
 }
 
 nav.visible .projects{
-    transform: translateY(0);
-    transition-delay: 0.5s;
+    transition-delay: 0.3s;
+    transition: all 600ms ease-out;
 }
 
 nav.visible .about{
-    transform: translateY(0);
-    transition-delay: 0.7s;
+    transition-delay: 0.3s;
+    transition: all 600ms ease-out;
 }
 
 /* CTA Properties */
