@@ -363,10 +363,10 @@ a:hover{
 nav{
     background-color: rgba(254, 254, 254, 0.9);
     height: 90vh;
-    width: 40vw;
+    width: 30vw;
     font-size: 2em;
-    transform: translateX(+140vw);
-    transition: transform 600ms ease-out;
+    transform: translateX(+130vw);
+    transition: transform 800ms ease-out;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -378,7 +378,7 @@ nav a{
 }
 
 nav.visible{
-    transform: translateX(60vw);
+    transform: translateX(70vw);
     position: absolute;
     top: 0;
     left: 0;
