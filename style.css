@@ -121,11 +121,13 @@ nav a{
 .bar:hover{
       width: 30px;
       height: 30px;
+      border-radius: 30%;
   }
 
 .bar.active{
     width: 20px;
     height: 20px;
+    border-radius: 50%;
     background-color: #404fe6;
 }
 
